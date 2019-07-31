@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import Photo from "./Photo";
 
 export default function PhotoCard(){
 
@@ -18,8 +19,8 @@ export default function PhotoCard(){
     }, [])
 
     return (
-        <div>
-            <img src={photo} alt="NASA photo of the day"/>
+        <div className="PhotoCard">
+            <Photo imgURL={photo}/>
         </div>    
 
     );
