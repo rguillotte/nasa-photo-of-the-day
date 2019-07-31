@@ -7,6 +7,7 @@ export default function PhotoCard(){
 
     const [photo, setPhoto] = useState([]);
     const [photoText, setPhotoText] = useState([]);
+    const [title, setTitle] = useState([]);
 
     useEffect(() => {
         axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
@@ -14,6 +15,7 @@ export default function PhotoCard(){
             console.log(results.data);
             setPhoto(results.data.url);
             setPhotoText(results.data.explanation);
+            setTitle(results.data.title);
             
         })
         .catch(err => {
@@ -23,6 +25,7 @@ export default function PhotoCard(){
 
     return (
         <div className="PhotoCard">
+            <h1 className="title">{title}</h1>
             <Photo imgURL={photo}/>
             <PhotoExplanation imgText={photoText} />
         </div>    
